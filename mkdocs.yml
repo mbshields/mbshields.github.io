@@ -1,4 +1,8 @@
 site_name: docs-sveltos
+copyright: Copyright &copy; 2022 Cisco Systems Inc., All Rights Reserved.
+theme:
+  name: material
+  logo: assets/images/logo.png
 nav:
   - Home: index.md
   - Introduction: introduction.md
