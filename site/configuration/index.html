@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://mbshields.github.io/configuration/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Configuration - docs-sveltos</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">docs-sveltos</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../introduction/" class="nav-link">Introduction</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../getting-started/" class="nav-link">Getting Started</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Configuration</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../getting-started/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/mbshields/mbshields.github.io/edit/master/docs/configuration.md" class="nav-link">Edit on mbshields.github.io
+                                    </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#sveltos-configuration-and-operation" class="nav-link">Sveltos - Configuration and Operation</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#cluster-selection" class="nav-link">Cluster Selection</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#sync-modes" class="nav-link">Sync Modes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#dry-run-mode" class="nav-link">Dry Run Mode</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#snapshots-and-rollback" class="nav-link">Snapshots and Rollback</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#managed-features" class="nav-link">Managed Features</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#detecting-conflicts" class="nav-link">Detecting conflicts</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#getting-started-on-any-kubernetes-cluster" class="nav-link">Getting started on any Kubernetes cluster</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#contributing" class="nav-link">Contributing</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#license" class="nav-link">License</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="sveltos-configuration-and-operation">Sveltos - Configuration and Operation</h1>
+<p><img src="./images/logo.png" width="200"></p>
+<ul>
+<li><a href="#sveltos---configuration-and-operation">Sveltos - Configuration and Operation</a></li>
+<li><a href="#cluster-selection">Cluster Selection</a></li>
+<li><a href="#sync-modes">Sync Modes</a></li>
+<li><a href="#dry-run-mode">Dry Run Mode</a></li>
+<li><a href="#snapshots-and-rollback">Snapshots and Rollback</a><ul>
+<li><a href="#rollback">Rollback</a></li>
+</ul>
+</li>
+<li><a href="#managed-features">Managed Features</a><ul>
+<li><a href="#configmaps-and-secrets">ConfigMaps and Secrets</a></li>
+<li><a href="#helm-charts">Helm charts</a></li>
+<li><a href="#list-helm-charts-and-resources-deployed-in-a-capi-cluster">List helm charts and resources deployed in a CAPI Cluster.</a></li>
+</ul>
+</li>
+<li><a href="#detecting-conflicts">Detecting conflicts</a></li>
+<li><a href="#getting-started-on-any-kubernetes-cluster">Getting started on any Kubernetes cluster</a><ul>
+<li><a href="#deploy-yaml">Deploy YAML</a></li>
+<li><a href="#install-crd-and-deployment">Install CRD and Deployment</a></li>
+<li><a href="#uninstall-crds">Uninstall CRDs</a></li>
+<li><a href="#undeploy-controller">Undeploy controller</a></li>
+</ul>
+</li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<p>The main features of Sveltos include:</p>
+<ul>
+<li><a href="#markdown-header-cluster-selection">Flexible cluster selection</a></li>
+<li><a href="#markdown-header-sync-modes">Sync Modes</a>: One Time or Continuous </li>
+<li><a href="#markdown-header-dry-run">Dry Run</a></li>
+<li><a href="#markdown-header-snapshotting">Snapshots and Rollback</a></li>
+<li><a href="#markdown-detecting-conflicts">Detecting Conflicts</a></li>
+<li>[Declarative API and CLI]</li>
+</ul>
+<h2 id="cluster-selection">Cluster Selection</h2>
+<p>The <code>clusterSelector</code> field is a Kubernetes <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#resources-that-support-set-based-requirements">label selector</a> that matches against labels on CAPI clusters.</p>
+<blockquote>
+<p>Example:  <code>clusterSelector: env=prod</code></p>
+</blockquote>
+<h2 id="sync-modes">Sync Modes</h2>
+<p>The <code>syncMode</code> field has three possible options. <code>Continuous</code> and <code>OneTime</code> are explained below. <code>DryRun</code> is explained in a separate section.</p>
+<blockquote>
+<p>Example:  <code>syncMode: Continuous</code></p>
+</blockquote>
+<ul>
+<li>OneTime</li>
+</ul>
+<p>Upon deployment of a <code>ClusterProfile</code> with a <code>syncMode</code> configuration of <code>OneTime</code>, all CAPI clusters are checked for a <code>clusterSelector</code> match, and all matching clusters will have the current <code>ClusterProfile</code>-specified features installed at that time.</p>
+<p>Any subsequent changes to the <code>ClusterProfile</code> features will not be deployed into the already matching CAPI clusters.</p>
+<ul>
+<li>Continuous</li>
+</ul>
+<p>When the <code>syncMode</code> configuration is <code>Continuous</code>, any new changes made to the <code>ClusterProfile</code>-specified features are immediately reconciled into the matching CAPI clusters.</p>
+<p>Reconciliation consists of one of these actions on matching clusters: 
+  - deploy a feature -- whenever a feature is added to the ClusterProfile or when a CAPI cluster newly matches the ClusterProfile
+  - update a feature -- whenever the ClusterProfile configuration changes or any referenced ConfigMap/Secret changes
+  - remove a feature -- whenever a Helm release or a ConfigMap/Secret is deleted from the ClusterProfile</p>
+<ul>
+<li>DryRun</li>
+</ul>
+<p>See <a href="#markdown-header-dry-run-mode">Dry Run Mode</a>.</p>
+<h2 id="dry-run-mode">Dry Run Mode</h2>
+<p>Before adding, modifying, or deleting a ClusterProfile, it is often useful to see what changes will result. When you deploy a <code>ClusterProfile</code> with a <code>syncMode</code> configuration of <code>DryRun</code>, a workflow is launched that will simulate all of the operations that would be executed in an actual run. No actual code is executed in the dry run workflow, and there are no side effects. The dry run workflow generates a list of potential changes for each matching CAPI cluster, allowing you to inspect and validate these changes before deploying the new <code>ClusterProfile</code> configuration.</p>
+<p>You can see the change list by viewing a generated Custom Resource Definition (CRD) named <em>ClusterReport</em>, but it is much easier to view the list using a  <a href="https://github.com/projectsveltos/sveltosctl">sveltosctl</a> CLI command, as shown in the following example:</p>
+<pre><code>./bin/sveltosctl show dryrun
++-------------------------------------+--------------------------+-----------+----------------+-----------+--------------------------------+------------------+
+|               CLUSTER               |      RESOURCE TYPE       | NAMESPACE |      NAME      |  ACTION   |            MESSAGE             | CLUSTER FEATURES |
++-------------------------------------+--------------------------+-----------+----------------+-----------+--------------------------------+------------------+
+| default/sveltos-management-workload | helm release             | kyverno   | kyverno-latest | Install   |                                | dryrun           |
+| default/sveltos-management-workload | helm release             | nginx     | nginx-latest   | Install   |                                | dryrun           |
+| default/sveltos-management-workload | :Pod                     | default   | nginx          | No Action | Object already deployed.       | dryrun           |
+|                                     |                          |           |                |           | And policy referenced by       |                  |
+|                                     |                          |           |                |           | ClusterProfile has not changed |                  |
+|                                     |                          |           |                |           | since last deployment.         |                  |
+| default/sveltos-management-workload | kyverno.io:ClusterPolicy |           | no-gateway     | Create    |                                | dryrun           |
++-------------------------------------+--------------------------+-----------+----------------+-----------+--------------------------------+------------------+
+</code></pre>
+<p>For a demonstration of dry run mode, watch the video <a href="https://www.youtube.com/watch?v=gfWN_QJAL6k&amp;t=4s">Sveltos, introduction to DryRun mode</a> on YouTube.</p>
+<h2 id="snapshots-and-rollback">Snapshots and Rollback</h2>
+<p>The snapshot feature allows you to capture a complete policy configuration at an instant in time. Using snapshots from different times, you can see what configuration changes occurred between two timestamps, and you can roll back and forward policy configurations to any saved configuration snapshot.</p>
+<p>Operations using snapshots, such as capture, diff, and rollback, are performed with the Sveltos command line interface, <code>sveltosctl</code>.</p>
+<p>For a demonstration of snapshots, watch the video <a href="https://www.youtube.com/watch?v=ALcp1_Nj9r4">Sveltos, introduction to Snapshots</a> on YouTube.</p>
+<h3 id="rollback">Rollback</h3>
+<p>Rollback is when a previous configuration snapshot is used to replace the current configuration deployed by ClusterProfiles. Rollback can be executed with the following granularities:
+1. namespace: Rolls back only ConfigMaps/Secrets and Cluster labels in this namespace. If no namespace is specified, all namespaces are updated.
+2. cluster: Rolls back only labels for a cluster with this name. If no cluster name is specified, labels for all clusters are updated.
+3. clusterprofile: Rolls back only ClusterProfiles with this name. If no ClusterProfile name is specified, all ClusterProfiles are updated.</p>
+<p>When all of the configuration files for a particular version are used to replace the current configuration, this is referred to as a full rollback.</p>
+<p>For a demonstration of rollback, watch the video <a href="https://www.youtube.com/watch?v=sTo6RcWP1BQ">Sveltos, introduction to Rollback mode</a> on YouTube.</p>
+<h2 id="managed-features">Managed Features</h2>
+<p>The purpose of Sveltos is to deploy features selectively to specified CAPI clusters. The features to be deployed can be Helm charts, Kubernetes Secrets, or Kubernetes ConfigMaps. In the example below, one of each type of feature is deployed. </p>
+<p>In this example, we want to deploy specific features into a subset of CAPI clusters: those that are labeled with <em>env: prod</em>. We first create a <code>ClusterProfile</code> instance, such as the YAML file shown below. In the instance, we specify an appropriate <code>clusterSelector</code> to match with the intended CAPI clusters. We then specify the desired features to be deployed into the selected CAPI clusters.</p>
+<p>Using the example <code>ClusterProfile</code>, Sveltos will direct Kubernetes to ensure that any CAPI cluster with the label <em>env: prod</em> will have the following features deployed:
+*  a Helm chart (version v2.5.0) for installing Kyverno
+*  a Kubernetes resource(s) contained in the referenced Secret: <em>default/storage-class</em>
+*  a Kubernetes resource(s) contained in the referenced ConfigMap: <em>default/contour</em></p>
+<pre><code>apiVersion: config.projectsveltos.io/v1alpha1
+kind: ClusterProfile
+metadata:
+  name: demo
+spec:
+  clusterSelector: env=prod
+  syncMode: Continuous
+  helmCharts:
+  - repositoryURL: https://kyverno.github.io/kyverno/
+    repositoryName: kyverno
+    chartName: kyverno/kyverno
+    chartVersion: v2.5.0
+    releaseName: kyverno-latest
+    releaseNamespace: kyverno
+    helmChartAction: Install
+ policyRefs:
+  - name: storage-class
+    namespace: default
+    kind: Secret
+  - name: contour-gateway
+    namespace: default
+    kind: ConfigMap
+</code></pre>
+<h3 id="configmaps-and-secrets">ConfigMaps and Secrets</h3>
+<p>ConfigMaps and Secrets contain Kubernetes resources that can be deployed in CAPI clusters. </p>
+<ul>
+<li>A Kubernetes <a href="https://kubernetes.io/docs/concepts/configuration/configmap/">ConfigMap</a> stores non-confidential data in key-value pairs.</li>
+<li>A Kubernetes <a href="https://kubernetes.io/docs/concepts/configuration/secret/">Secret</a> is similar to a ConfigMap, but is used to store sensitive data.</li>
+</ul>
+<p>ConfigMaps and Secrets are listed and identified by name, namespace, and kind in the <code>policyRefs</code> section of the <code>ClusterProfile</code>. </p>
+<p>The data field of a ConfigMap or Secret can be a list of key-value pairs. Any key is acceptable, and the value can be multiple objects, described in YAML or JSON format. </p>
+<p>The following YAML file is an example of the <em>contour-gateway</em> ConfigMap, which  is referenced by our example <code>ClusterProfile</code>. When Sveltos deploys this ConfigMap as part of our <code>ClusterProfile</code>, a GatewayClass and Gateway instance are automatically deployed in any matching CAPI cluster.</p>
+<pre><code>apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: contour-gateway
+  namespace: default
+data:
+  gatewayclass.yaml: |
+    kind: GatewayClass
+    apiVersion: gateway.networking.k8s.io/v1beta1
+    metadata:
+      name: contour
+    spec:
+      controllerName: projectcontour.io/projectcontour/contour
+  gateway.yaml: |
+    kind: Namespace
+    apiVersion: v1
+    metadata:
+      name: projectcontour
+    ---
+    kind: Gateway
+    apiVersion: gateway.networking.k8s.io/v1beta1
+    metadata:
+     name: contour
+     namespace: projectcontour
+    spec:
+      gatewayClassName: contour
+      listeners:
+        - name: http
+          protocol: HTTP
+          port: 80
+          allowedRoutes:
+            namespaces:
+              from: All
+</code></pre>
+<h3 id="helm-charts">Helm charts</h3>
+<p><a href="https://helm.sh">Helm</a> is a CNCF graduated project that serves as a package manager widely used in the Kubernetes community. Helm uses "charts" to orchestrate the deployment of a set of Kubernetes resources. </p>
+<p>Helm charts to be deployed by Sveltos are listed in the <code>helmCharts</code> section of the <code>ClusterProfile</code>. Sveltos uses the <a href="helm.sh/helm/v3/pkg">Helm golang SDK</a> to deploy all Helm charts listed in a <code>ClusterProfile</code> instance.</p>
+<h3 id="list-helm-charts-and-resources-deployed-in-a-capi-cluster">List helm charts and resources deployed in a CAPI Cluster.</h3>
+<p>There is many-to-many mapping between Clusters and ClusterProfile: 
+- Multiple ClusterProfiles can match with a CAPI cluster; 
+- Multiple CAPI clusters can match with a single ClusterProfile.</p>
+<p>As for DryRun, <a href="https://github.com/projectsveltos/sveltosctl">sveltosctl</a> can be used to properly list all deployed features per CAPI cluster:</p>
+<pre><code>./bin/sveltosctl show features
++-------------------------------------+--------------------------+-----------+----------------+---------+-------------------------------+------------------+
+|               CLUSTER               |      RESOURCE TYPE       | NAMESPACE |      NAME      | VERSION |             TIME              | CLUSTER PROFILES |
++-------------------------------------+--------------------------+-----------+----------------+---------+-------------------------------+------------------+
+| default/sveltos-management-workload | helm chart               | kyverno   | kyverno-latest | v2.5.0  | 2022-10-11 20:59:18 -0700 PDT | mgianluc         |
+| default/sveltos-management-workload | helm chart               | nginx     | nginx-latest   | 0.14.0  | 2022-10-11 20:59:25 -0700 PDT | mgianluc         |
+| default/sveltos-management-workload | helm chart               | mysql     | mysql          | 9.3.3   | 2022-10-11 20:43:41 -0700 PDT | mgianluc         |
+| default/sveltos-management-workload | :Pod                     | default   | nginx          | N/A     | 2022-10-12 09:33:25 -0700 PDT | mgianluc         |
+| default/sveltos-management-workload | kyverno.io:ClusterPolicy |           | no-gateway     | N/A     | 2022-10-12 09:33:25 -0700 PDT | mgianluc         |
++-------------------------------------+--------------------------+-----------+----------------+---------+-------------------------------+------------------+
+</code></pre>
+<p>Otherwise, a new CRD is introduced to easily summarize which features (either helm charts or kubernetes resources) are deployed in a given CAPI cluster because of one or more ClusterProfiles.
+Such CRD is called <em>ClusterConfiguration</em>.</p>
+<p>There is exactly only one ClusterConfiguration for each CAPI Cluster.</p>
+<p>Following example shows us that because of ClusterProfile <em>demo</em> three helm charts and one Kyverno ClusterPolicy were deployed.</p>
+<pre><code>apiVersion: v1
+items:
+- apiVersion: config.projectsveltos.io/v1alpha1
+  kind: ClusterConfiguration
+  metadata:
+    creationTimestamp: &quot;2022-09-19T21:14:15Z&quot;
+    generation: 1
+    name: sveltos-management-workload
+    namespace: default
+    ownerReferences:
+    - apiVersion: config.projectsveltos.io/v1alpha1
+      kind: ClusterProfile
+      name: demo2
+      uid: f0f93440-95ae-4663-aff7-3b27c1135dfc
+    resourceVersion: &quot;45488&quot;
+    uid: efa326cb-a7e0-401c-918f-0a9252033856
+  status:
+    clusterProfileResources:
+    - Features:
+      - charts:
+        - appVersion: v1.7.0
+          chartName: kyverno-latest
+          chartVersion: v2.5.0
+          lastAppliedTime: &quot;2022-09-19T21:14:16Z&quot;
+          namespace: kyverno
+          repoURL: https://kyverno.github.io/kyverno/
+        - appVersion: 2.3.0
+          chartName: nginx-latest
+          chartVersion: 0.14.0
+          lastAppliedTime: &quot;2022-09-19T21:14:23Z&quot;
+          namespace: nginx
+          repoURL: https://helm.nginx.com/stable
+        - appVersion: 1.22.1
+          chartName: contour
+          chartVersion: 9.1.2
+          lastAppliedTime: &quot;2022-09-19T21:17:31Z&quot;
+          namespace: projectcontour
+          repoURL: https://charts.bitnami.com/bitnami
+        featureID: Helm
+      - featureID: Resources
+        resources:
+        - group: kyverno.io
+          kind: ClusterPolicy
+          lastAppliedTime: &quot;2022-09-19T21:20:18Z&quot;
+          name: no-gateway
+          owner:
+            kind: ConfigMap
+            name: kyverno-disallow-gateway
+            namespace: default
+      clusterProfileName: demo
+</code></pre>
+<h2 id="detecting-conflicts">Detecting conflicts</h2>
+<p>Multiple ClusterProfiles can match same CAPI cluster. Because of that misconfiguration can happen and need to be detected.</p>
+<p>For instance:
+1. ClusterProfile A references ConfigMap A containing a Kyverno ClusterPolicy called <em>no-gateway"
+2. ClusterProfile B references ConfigMap B containing a Kyverno ClusterPolicy called </em>no-gateway"</p>
+<p>In such case, ClusterProfile will be allowed to deploy the Kyverno ClusterPolicy, while ClusterProfile B will report a conflict.</p>
+<p>Note that in following example there is no conflict since both ClusterProfiles are referencing same ConfigMap:
+1. ClusterProfile A references ConfigMap A containing a Kyverno ClusterPolicy called <em>no-gateway"
+2. ClusterProfile B references ConfigMap A containing a Kyverno ClusterPolicy called </em>no-gateway"</p>
+<p>Another example of misconfiguration is when two different ClusterProfiles match same CAPI Cluster(s) and both want to deploy same Helm chart in the same namespace.</p>
+<p>In such a case, only one ClusterProfile will be elected and given permission to manage a specific helm release in a given CAPI cluster. Other ClusterProfiles will report such misconfiguration.</p>
+<h2 id="getting-started-on-any-kubernetes-cluster">Getting started on any Kubernetes cluster</h2>
+<p>You can use <a href="https://sigs.k8s.io/kind">KIND</a> to get a local cluster for testing, or run against a remote cluster.</p>
+<p>First you need to install ClusterAPI in such cluster. <a href="https://cluster-api.sigs.k8s.io/user/quick-start.html">ClusterAPI instruction</a> can be followed.</p>
+<p>Second you need to install the CRD and Deployment for the project in the management cluster:</p>
+<h3 id="deploy-yaml">Deploy YAML</h3>
+<p>You can post the YAML to the management cluster</p>
+<pre><code>kubectl create -f  https://raw.githubusercontent.com/projectsveltos/cluster-api-feature-manager/master/manifest/manifest.yaml
+</code></pre>
+<h3 id="install-crd-and-deployment">Install CRD and Deployment</h3>
+<ol>
+<li>. Deploy the controller to the cluster with the image specified by <code>IMG</code>:</li>
+</ol>
+<pre><code class="language-sh">make deploy IMG=&lt;some-registry&gt;/cluster-api-feature-manager:tag
+</code></pre>
+<h3 id="uninstall-crds">Uninstall CRDs</h3>
+<p>To delete the CRDs from the cluster:</p>
+<pre><code class="language-sh">make uninstall
+</code></pre>
+<h3 id="undeploy-controller">Undeploy controller</h3>
+<p>UnDeploy the controller to the cluster:</p>
+<pre><code class="language-sh">make undeploy
+</code></pre>
+<h2 id="contributing">Contributing</h2>
+<p>If you have questions, noticed any bug or want to get the latest project news, you can connect with us in the following ways:
+1. Open a bug/feature enhancement on github;</p>
+<h2 id="license">License</h2>
+<p>Copyright 2022.</p>
+<p>Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at</p>
+<pre><code>http://www.apache.org/licenses/LICENSE-2.0
+</code></pre>
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
