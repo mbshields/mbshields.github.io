@@ -1,0 +1,10 @@
+site_name: docs-sveltos
+site_url: https://mbshields.github.io
+site_description: Sveltos Project
+repo_url: https://github.com/mbshields/mbshields.github.io
+repo_name: mbshields.github.io
+nav:
+  - Home: index.md
+  - Introduction: introduction.md
+  - Getting Started: getting-started.md
+  - Configuration: configuration.md
