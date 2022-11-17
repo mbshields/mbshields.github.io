@@ -1,25 +1,7 @@
-# Sveltos - Configuration and Operation
+# Configuration and Operation
 
-<img src="./images/logo.png" width="200">
+<img src="../assets/images/logo.png" width="200">
 
-- [Sveltos - Configuration and Operation](#sveltos---configuration-and-operation)
-  - [Cluster Selection](#cluster-selection)
-  - [Sync Modes](#sync-modes)
-  - [Dry Run Mode](#dry-run-mode)
-  - [Snapshots and Rollback](#snapshots-and-rollback)
-    - [Rollback](#rollback)
-  - [Managed Features](#managed-features)
-    - [ConfigMaps and Secrets](#configmaps-and-secrets)
-    - [Helm charts](#helm-charts)
-    - [List helm charts and resources deployed in a CAPI Cluster.](#list-helm-charts-and-resources-deployed-in-a-capi-cluster)
-  - [Detecting conflicts](#detecting-conflicts)
-  - [Getting started on any Kubernetes cluster](#getting-started-on-any-kubernetes-cluster)
-    - [Deploy YAML](#deploy-yaml)
-    - [Install CRD and Deployment](#install-crd-and-deployment)
-    - [Uninstall CRDs](#uninstall-crds)
-    - [Undeploy controller](#undeploy-controller)
-  - [Contributing](#contributing)
-  - [License](#license)
 
 The main features of Sveltos include:
 

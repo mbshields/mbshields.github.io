@@ -1,5 +1,5 @@
-site_name: docs-sveltos
-copyright: Copyright &copy; 2022 Cisco Systems Inc., All Rights Reserved.
+site_name: Sveltos Documentation
+copyright: Copyright &copy; 2022
 theme:
   name: material
   logo: assets/images/logo.png
@@ -8,3 +8,5 @@ nav:
   - Introduction: introduction.md
   - Getting Started: getting-started.md
   - Configuration: configuration.md
+  - Contributing: contributing.md
+  - License: license.md

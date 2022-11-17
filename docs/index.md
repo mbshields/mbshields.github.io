@@ -1,19 +1,5 @@
-# Welcome to Sveltos
+# Welcome to Sveltos - A Feature Manager for K8s Clusters
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+<img src="assets/images/logo.png" width="200">
 
-## MK Docs Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        introduction.md
-        getting-started.md
-        configuration.md
+[Sveltos](https://github.com/projectsveltos/sveltos-manager) is a tool for policy driven management of features and resources in ClusterAPI powered Kubernetes clusters. Sveltos extends the functionality of ClusterAPI (CAPI) to add management of Kubernetes resources and Helm charts. Sveltos is a lightweight, freely available open source project that can be installed on a Kubernetes cluster in minutes.

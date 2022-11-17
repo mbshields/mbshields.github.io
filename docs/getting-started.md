@@ -1,16 +1,7 @@
 # Getting Started
 
-<img src="./images/logo.png" width="200">
+<img src="../assets/images/logo.png" width="200">
 
-- [Getting Started](#getting-started)
-  - [Getting started with a sandbox](#getting-started-with-a-sandbox)
-  - [Getting started on any Kubernetes cluster](#getting-started-on-any-kubernetes-cluster)
-    - [Deploy YAML](#deploy-yaml)
-    - [Install CRD and Deployment](#install-crd-and-deployment)
-    - [Uninstall CRDs](#uninstall-crds)
-    - [Undeploy controller](#undeploy-controller)
-  - [Contributing](#contributing)
-  - [License](#license)
 
 [Sveltos](https://github.com/projectsveltos/sveltos-manager) is a tool for policy driven management of features and resources in ClusterAPI powered Kubernetes 
 
