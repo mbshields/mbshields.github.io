@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.8">
     
     
       
@@ -17,10 +17,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.472b142f.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.20d9efc8.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.08040f6c.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.815d1a91.min.css">
         
       
       
@@ -52,7 +52,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
   
     
     
@@ -262,61 +262,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#getting-started-with-a-sandbox" class="md-nav__link">
-    Getting started with a sandbox
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-started-on-any-kubernetes-cluster" class="md-nav__link">
-    Getting started on any Kubernetes cluster
-  </a>
-  
-    <nav class="md-nav" aria-label="Getting started on any Kubernetes cluster">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#deploy-yaml" class="md-nav__link">
-    Deploy YAML
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install-crd-and-deployment" class="md-nav__link">
-    Install CRD and Deployment
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#uninstall-crds" class="md-nav__link">
-    Uninstall CRDs
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#undeploy-controller" class="md-nav__link">
-    Undeploy controller
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contributing" class="md-nav__link">
-    Contributing
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -446,61 +391,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#getting-started-with-a-sandbox" class="md-nav__link">
-    Getting started with a sandbox
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-started-on-any-kubernetes-cluster" class="md-nav__link">
-    Getting started on any Kubernetes cluster
-  </a>
-  
-    <nav class="md-nav" aria-label="Getting started on any Kubernetes cluster">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#deploy-yaml" class="md-nav__link">
-    Deploy YAML
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install-crd-and-deployment" class="md-nav__link">
-    Install CRD and Deployment
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#uninstall-crds" class="md-nav__link">
-    Uninstall CRDs
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#undeploy-controller" class="md-nav__link">
-    Undeploy controller
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contributing" class="md-nav__link">
-    Contributing
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -517,7 +407,7 @@
 
 
 <h1 id="sveltos-a-feature-manager-for-k8s-clusters">Sveltos - A Feature Manager for K8s Clusters</h1>
-<p><img src="../assets/images/logo.png" width="200"></p>
+<p><a href="https://github.com/projectsveltos/sveltos-manager"><img src="../assets/images/logo.png" width="200"></a></p>
 <h2 id="what-is-sveltos">What is Sveltos?</h2>
 <p><a href="https://github.com/projectsveltos/sveltos-manager">Sveltos</a> is a tool for policy driven management of features and resources in ClusterAPI powered Kubernetes clusters. Sveltos extends the functionality of ClusterAPI (CAPI) to add management of Kubernetes resources and Helm charts. Sveltos is a lightweight, freely available open source project that can be installed on a Kubernetes cluster in minutes.</p>
 <h2 id="how-does-sveltos-help">How does Sveltos help?</h2>
@@ -561,39 +451,10 @@ spec:
 </code></pre>
 <p>When a CAPI cluster is found to match the <code>clusterSelector</code> <em>env=prod</em>, all of the specified features are automatically deployed in the cluster.</p>
 <p>For a simple demonstration, watch the video <a href="https://www.youtube.com/watch?v=Ai5Mr9haWKM">Sveltos Overview</a> on YouTube.</p>
-<h2 id="getting-started-with-a-sandbox">Getting started with a sandbox</h2>
-<p>If you want to test it out, just execute, <code>make create-cluster</code> and it will:
-1. create a <a href="https://sigs.k8s.io/kind">KIND</a> cluster;
-2. install ClusterAPI;
-3. create a CAPI Cluster with Docker as infrastructure provider;
-4. install CRD and the Deployment from this project;
-5. create a ClusterProfile instance;
-6. modify CAPI Cluster labels so to match ClusterProfile selector.</p>
-<h2 id="getting-started-on-any-kubernetes-cluster">Getting started on any Kubernetes cluster</h2>
-<p>You can use <a href="https://sigs.k8s.io/kind">KIND</a> to get a local cluster for testing, or run against a remote cluster.</p>
-<p>First you need to install ClusterAPI in such cluster. <a href="https://cluster-api.sigs.k8s.io/user/quick-start.html">ClusterAPI instruction</a> can be followed.</p>
-<p>Second you need to install the CRD and Deployment for the project in the management cluster:</p>
-<h3 id="deploy-yaml">Deploy YAML</h3>
-<p>You can post the YAML to the management cluster</p>
-<pre><code>kubectl create -f  https://raw.githubusercontent.com/projectsveltos/cluster-api-feature-manager/master/manifest/manifest.yaml
-</code></pre>
-<h3 id="install-crd-and-deployment">Install CRD and Deployment</h3>
-<ol>
-<li>. Deploy the controller to the cluster with the image specified by <code>IMG</code>:</li>
-</ol>
-<pre><code class="language-sh">make deploy IMG=&lt;some-registry&gt;/cluster-api-feature-manager:tag
-</code></pre>
-<h3 id="uninstall-crds">Uninstall CRDs</h3>
-<p>To delete the CRDs from the cluster:</p>
-<pre><code class="language-sh">make uninstall
-</code></pre>
-<h3 id="undeploy-controller">Undeploy controller</h3>
-<p>UnDeploy the controller to the cluster:</p>
-<pre><code class="language-sh">make undeploy
-</code></pre>
-<h2 id="contributing">Contributing</h2>
-<p>If you have questions, noticed any bug or want to get the latest project news, you can connect with us in the following ways:
-1. Open a bug/feature enhancement on github;</p>
+<blockquote>
+<p><strong>Tip:</strong>
+See the collection of Sveltos videos at <a href="https://www.youtube.com/@projectsveltos626">ProjectSveltos</a>.</p>
+</blockquote>
 
 
 
